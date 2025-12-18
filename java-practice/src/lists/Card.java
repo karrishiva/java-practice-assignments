@@ -13,6 +13,10 @@ public record Card(Suit suit, String face, int rank) {
 			return (new char[] {9827, 9830, 9829, 9824})[this.ordinal()];
 		}
 	}
+	
+	public static Comparator<Card> sortRankReverseSuit(){
+		return Comparator.comparing(Card::rank).reversed().thenComparing(Card::suit);
+	}
 
 	@Override
 	public String toString() {
